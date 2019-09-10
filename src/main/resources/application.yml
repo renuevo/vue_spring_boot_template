@@ -1,0 +1,46 @@
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 2
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        #dialect: org.hibernate.dialect.MySQL5Dialect
+    database: mysql
+
+server:
+  servlet:
+    context-path: /workshop
+
+
+
+logging:
+  file: error.log
+
+FILE:
+  PATH:
+    ROOT: C:/Users/user/KSEARCH/total_dic/workshop/
+    TEST:
+      SELF: matching_on_self.csv
+      OBSERVER: matching_on_observer.csv
+    COMPANY_REVIEW: review_data
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/workshop?characterEncoding=UTF-8&serverTimezone=UTC
+    username: renuevo
+    password: *************
